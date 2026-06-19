@@ -9,6 +9,9 @@
     <!-- Tailwind CSS (Local Offline) -->
     <script src="./tailwind.js"></script>
 
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -377,36 +380,41 @@
             </div>
 
             <!-- SLIDE 6: CLASIFICACION -->
-            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-5">
-                <div class="anim-1 flex items-center gap-2 mb-4">
-                    <span class="w-2 h-2 bg-brand-accentGreen rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentGreen font-bold font-sora">Modelo 2: Clasificación</span>
-                </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Rango de Salario</h2>
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto relative" id="slide-5">
+                <!-- Three.js Canvas Container -->
+                <div id="three-classification-bg" class="absolute inset-0 pointer-events-none opacity-25 z-0 rounded-3xl overflow-hidden"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div
-                        class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-brand-accentGreen font-sora font-bold text-lg">Enfoque por Categorías</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="En lugar de buscar un número exacto, se le pide al sistema clasificar cada puesto en tres categorías: Bajo, Medio o Alto.">
-                        </p>
+                <div class="relative z-10 w-full">
+                    <div class="anim-1 flex items-center gap-2 mb-4">
+                        <span class="w-2 h-2 bg-brand-accentGreen rounded-full"></span>
+                        <span class="text-xs uppercase tracking-widest text-brand-accentGreen font-bold font-sora">Modelo 2: Clasificación</span>
                     </div>
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Rango de Salario</h2>
 
-                    <div
-                        class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-teal-400 font-sora font-bold text-lg">Efectividad</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="Acertó la categoría en una proporción alta de los casos de prueba, resultando muy efectivo para el tipo de datos analizado.">
-                        </p>
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-start transition-all duration-300">
+                            <h3 class="text-brand-accentGreen font-sora font-bold text-lg">Enfoque por Categorías</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed mt-2">
+                                En lugar de buscar un número exacto, se le pide al sistema clasificar cada puesto en tres categorías: Bajo, Medio o Alto.
+                            </p>
+                        </div>
 
-                    <div
-                        class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-brand-accentRed font-sora font-bold text-lg">Utilidad</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="Permite responder con rapidez y fiabilidad una duda crucial: ¿esta oferta de trabajo paga por encima o por debajo de la media del mercado?">
-                        </p>
+                        <div
+                            class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-start transition-all duration-300">
+                            <h3 class="text-teal-400 font-sora font-bold text-lg">Efectividad</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed mt-2">
+                                Acertó la categoría en una proporción alta de los casos de prueba, resultando muy efectivo para el tipo de datos analizado.
+                            </p>
+                        </div>
+
+                        <div
+                            class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-start transition-all duration-300">
+                            <h3 class="text-brand-accentRed font-sora font-bold text-lg">Utilidad</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed mt-2">
+                                Permite responder con rapidez y fiabilidad una duda crucial: ¿esta oferta de trabajo paga por encima o por debajo de la media del mercado?
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -425,24 +433,24 @@
                     <div
                         class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Perfil 1 (Alto)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos.">
+                        <p class="text-sm text-brand-textMuted leading-relaxed">
+                            Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos.
                         </p>
                     </div>
 
                     <div
                         class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">Perfil 2 (Medio)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general.">
+                        <p class="text-sm text-brand-textMuted leading-relaxed">
+                            Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general.
                         </p>
                     </div>
 
                     <div
                         class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">Perfil 3 (Bajo)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
-                            data-text="Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos.">
+                        <p class="text-sm text-brand-textMuted leading-relaxed">
+                            Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos.
                         </p>
                     </div>
                 </div>
@@ -450,14 +458,9 @@
 
             <!-- SLIDE 8: TRANSICION DASHBOARD -->
             <div class="slide flex-col justify-center items-center text-center h-full max-w-4xl mx-auto" id="slide-7">
-                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">
-                    Fase 03</div>
-                <h1 class="anim-2 font-sora font-extrabold text-4xl md:text-6xl text-white leading-tight mb-4">
+                <h1 class="anim-2 font-sora font-extrabold text-4xl md:text-6xl text-white leading-tight">
                     Dashboard en Power BI
                 </h1>
-                <p class="anim-3 text-lg text-brand-textMuted max-w-xl mx-auto font-light">
-                    [ Cambiar a la pantalla de Power BI para mostrar el reporte dinámico en vivo ]
-                </p>
             </div>
 
             <!-- SLIDE 9: VIDA REAL Y LIMITACIONES -->
@@ -785,9 +788,135 @@
             }
         }
 
+        // Navegación por click en pantalla (evitando elementos interactivos)
+        document.addEventListener('click', (e) => {
+            if (
+                e.target.closest('button') ||
+                e.target.closest('a') ||
+                e.target.closest('#sidebar') ||
+                e.target.closest('#notes-panel') ||
+                e.target.closest('.cursor-pointer') ||
+                window.getComputedStyle(e.target).cursor === 'pointer'
+            ) {
+                return;
+            }
+            nextSlide();
+        });
+
+        // Inicializar Three.js para la diapositiva de Clasificación
+        function initThreeClasificacion() {
+            const container = document.getElementById('three-classification-bg');
+            if (!container) return;
+
+            const width = container.clientWidth || 1000;
+            const height = container.clientHeight || 600;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+            camera.position.z = 120;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Generar partículas en 3 grupos (Clasificación)
+            const particleCount = 450;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            // Colores del tema:
+            const colorAlto = new THREE.Color('#10b981'); // Verde
+            const colorMedio = new THREE.Color('#06b6d4'); // Celeste/Cian
+            const colorBajo = new THREE.Color('#ec4899'); // Rosa/Rojo
+
+            for (let i = 0; i < particleCount; i++) {
+                const group = i % 3;
+                let x, y, z;
+                let col;
+
+                if (group === 0) {
+                    // Grupo Bajo: Clúster abajo a la izquierda
+                    x = (Math.random() - 0.5) * 25 - 25;
+                    y = (Math.random() - 0.5) * 25 - 15;
+                    z = (Math.random() - 0.5) * 20;
+                    col = colorBajo;
+                } else if (group === 1) {
+                    // Grupo Medio: Clúster en el centro
+                    x = (Math.random() - 0.5) * 25;
+                    y = (Math.random() - 0.5) * 25;
+                    z = (Math.random() - 0.5) * 20;
+                    col = colorMedio;
+                } else {
+                    // Grupo Alto: Clúster arriba a la derecha
+                    x = (Math.random() - 0.5) * 25 + 25;
+                    y = (Math.random() - 0.5) * 25 + 15;
+                    z = (Math.random() - 0.5) * 20;
+                    col = colorAlto;
+                }
+
+                positions[i * 3] = x;
+                positions[i * 3 + 1] = y;
+                positions[i * 3 + 2] = z;
+
+                colors[i * 3] = col.r;
+                colors[i * 3 + 1] = col.g;
+                colors[i * 3 + 2] = col.b;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            // Crear textura circular para las partículas
+            const pCanvas = document.createElement('canvas');
+            pCanvas.width = 16;
+            pCanvas.height = 16;
+            const pCtx = pCanvas.getContext('2d');
+            const grad = pCtx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            pCtx.fillStyle = grad;
+            pCtx.fillRect(0, 0, 16, 16);
+            const texture = new THREE.CanvasTexture(pCanvas);
+
+            const material = new THREE.PointsMaterial({
+                size: 2.2,
+                vertexColors: true,
+                map: texture,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            // Rotación sutil
+            function animate() {
+                requestAnimationFrame(animate);
+                points.rotation.y += 0.001;
+                points.rotation.x += 0.0005;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Resize observer
+            const resizeObserver = new ResizeObserver(() => {
+                const w = container.clientWidth;
+                const h = container.clientHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            });
+            resizeObserver.observe(container);
+        }
+
         window.onload = function () {
             goToSlide(0);
             buildSidebar();
+            initThreeClasificacion();
         };
     </script>
 </body>

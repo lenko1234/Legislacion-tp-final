@@ -329,54 +329,59 @@
             </div>
 
             <!-- SLIDE 5: REGRESION -->
-            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-4">
-                <div class="anim-1 flex items-center gap-4 mb-6">
-                    <!-- Icono circular verde/teal -->
-                    <div class="w-14 h-14 rounded-full bg-[#0d9488]/20 border border-[#0d9488]/40 flex items-center justify-center text-[#0d9488]">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora block">Modelo 1: Regresión</span>
-                        <h2 class="font-sora font-bold text-3xl md:text-4xl text-white">Predecir el salario exacto</h2>
-                    </div>
-                </div>
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto relative" id="slide-4">
+                <!-- Three.js Canvas Container -->
+                <div id="three-regression-bg" class="absolute inset-0 pointer-events-none opacity-25 z-0 rounded-3xl overflow-hidden"></div>
 
-                <ul class="anim-2 space-y-5 text-brand-textMuted mt-4">
-                    <li class="flex flex-col items-start gap-1">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
-                            <span class="font-sora font-semibold text-brand-accentBlue">Entrenamiento del modelo</span>
+                <div class="relative z-10 w-full">
+                    <div class="anim-1 flex items-center gap-4 mb-6">
+                        <!-- Icono circular verde/teal -->
+                        <div class="w-14 h-14 rounded-full bg-[#0d9488]/20 border border-[#0d9488]/40 flex items-center justify-center text-[#0d9488]">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
                         </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
-                            data-text="Se le mostró al sistema cientos de ofertas con su salario real, para que aprenda qué características se relacionan con sueldos más altos o más bajos."></p>
-                    </li>
-                    <li class="flex flex-col items-start gap-1">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
-                            <span class="font-sora font-semibold text-brand-accentOrange">Factores de influencia</span>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora block">Modelo 1: Regresión</span>
+                            <h2 class="font-sora font-bold text-3xl md:text-4xl text-white">Predecir el salario exacto</h2>
                         </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
-                            data-text="Lo que más influye en el salario: la calificación de la empresa (rating) y su tamaño, más que las habilidades técnicas pedidas."></p>
-                    </li>
-                    <li class="flex flex-col items-start gap-1">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
-                            <span class="font-sora font-semibold text-brand-accentGreen">Precisión y estimación</span>
-                        </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
-                            data-text="El modelo no acierta el salario exacto siempre, pero da una estimación razonable."></p>
-                    </li>
-                    <li class="flex flex-col items-start gap-1">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentRed flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
-                            <span class="font-sora font-semibold text-brand-accentRed">Analogía práctica</span>
-                        </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
-                            data-text="Es como cuando una inmobiliaria estima el valor de una casa según su barrio y metros cuadrados, sin adivinar el valor exacto de la transacción final."></p>
-                    </li>
-                </ul>
+                    </div>
+
+                    <ul class="anim-2 space-y-5 text-brand-textMuted mt-4">
+                        <li class="flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-brand-accentBlue">Entrenamiento del modelo</span>
+                            </div>
+                            <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                                data-text="Se le mostró al sistema cientos de ofertas con su salario real, para que aprenda qué características se relacionan con sueldos más altos o más bajos."></p>
+                        </li>
+                        <li class="flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-brand-accentOrange">Factores de influencia</span>
+                            </div>
+                            <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                                data-text="Lo que más influye en el salario: la calificación de la empresa (rating) y su tamaño, más que las habilidades técnicas pedidas."></p>
+                        </li>
+                        <li class="flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-brand-accentGreen">Precisión y estimación</span>
+                            </div>
+                            <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                                data-text="El modelo no acierta el salario exacto siempre, pero da una estimación razonable."></p>
+                        </li>
+                        <li class="flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentRed flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-brand-accentRed">Analogía práctica</span>
+                            </div>
+                            <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                                data-text="Es como cuando una inmobiliaria estima el valor de una casa según su barrio y metros cuadrados, sin adivinar el valor exacto de la transacción final."></p>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <!-- SLIDE 6: CLASIFICACION -->
@@ -420,38 +425,43 @@
             </div>
 
             <!-- SLIDE 7: CLUSTERING -->
-            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-6">
-                <div class="anim-1 flex items-center gap-2 mb-4">
-                    <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Modelo 3: Clustering</span>
-                </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Agrupar ofertas parecidas</h2>
-                <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Se le pide al sistema agrupar ofertas
-                    por similitud de variables, sin darle respuestas previas.</div>
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto relative" id="slide-6">
+                <!-- Three.js Canvas Container -->
+                <div id="three-clustering-bg" class="absolute inset-0 pointer-events-none opacity-25 z-0 rounded-3xl overflow-hidden"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div
-                        class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Perfil 1 (Alto)</h3>
-                        <p class="text-sm text-brand-textMuted leading-relaxed">
-                            Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos.
-                        </p>
+                <div class="relative z-10 w-full">
+                    <div class="anim-1 flex items-center gap-2 mb-4">
+                        <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
+                        <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Modelo 3: Clustering</span>
                     </div>
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Agrupar ofertas parecidas</h2>
+                    <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Se le pide al sistema agrupar ofertas
+                        por similitud de variables, sin darle respuestas previas.</div>
 
-                    <div
-                        class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">Perfil 2 (Medio)</h3>
-                        <p class="text-sm text-brand-textMuted leading-relaxed">
-                            Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general.
-                        </p>
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                            <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Perfil 1 (Alto)</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed">
+                                Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos.
+                            </p>
+                        </div>
 
-                    <div
-                        class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">Perfil 3 (Bajo)</h3>
-                        <p class="text-sm text-brand-textMuted leading-relaxed">
-                            Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos.
-                        </p>
+                        <div
+                            class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                            <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">Perfil 2 (Medio)</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed">
+                                Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general.
+                            </p>
+                        </div>
+
+                        <div
+                            class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                            <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">Perfil 3 (Bajo)</h3>
+                            <p class="text-sm text-brand-textMuted leading-relaxed">
+                                Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -803,9 +813,135 @@
             nextSlide();
         });
 
-        // Inicializar Three.js para la diapositiva de Clasificación
+        // Inicializar Three.js para la diapositiva de Clasificación (Límites de decisión)
         function initThreeClasificacion() {
             const container = document.getElementById('three-classification-bg');
+            if (!container) return;
+
+            const width = container.clientWidth || 1000;
+            const height = container.clientHeight || 600;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+            camera.position.set(0, 20, 100);
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Plano de decisión (holográfico)
+            const planeGeom = new THREE.PlaneGeometry(100, 100, 8, 8);
+            const planeMat = new THREE.MeshBasicMaterial({
+                color: 0x06b6d4, // Cyan
+                transparent: true,
+                opacity: 0.08,
+                wireframe: true,
+                side: THREE.DoubleSide
+            });
+            const decisionPlane = new THREE.Mesh(planeGeom, planeMat);
+            decisionPlane.rotation.x = Math.PI / 4;
+            scene.add(decisionPlane);
+
+            // Borde del plano (líneas)
+            const edges = new THREE.EdgesGeometry(planeGeom);
+            const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.3 }));
+            decisionPlane.add(line);
+
+            // Generar partículas para clasificar
+            const particleCount = 300;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            const pPositions = [];
+            for (let i = 0; i < particleCount; i++) {
+                const x = (Math.random() - 0.5) * 80;
+                const y = (Math.random() - 0.5) * 80;
+                const z = (Math.random() - 0.5) * 60;
+                pPositions.push(new THREE.Vector3(x, y, z));
+                positions[i * 3] = x;
+                positions[i * 3 + 1] = y;
+                positions[i * 3 + 2] = z;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            // Textura circular
+            const pCanvas = document.createElement('canvas');
+            pCanvas.width = 16;
+            pCanvas.height = 16;
+            const pCtx = pCanvas.getContext('2d');
+            const grad = pCtx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            pCtx.fillStyle = grad;
+            pCtx.fillRect(0, 0, 16, 16);
+            const texture = new THREE.CanvasTexture(pCanvas);
+
+            const material = new THREE.PointsMaterial({
+                size: 2.5,
+                vertexColors: true,
+                map: texture,
+                transparent: true,
+                opacity: 0.7,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            const colorA = new THREE.Color('#10b981'); // Verde (Clase A)
+            const colorB = new THREE.Color('#ec4899'); // Rosa/Rojo (Clase B)
+            const normal = new THREE.Vector3();
+
+            // Animar y clasificar dinámicamente
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.003;
+
+                // Rotar plano de decisión para cambiar la clasificación de los datos
+                decisionPlane.rotation.y = time * 0.4;
+                decisionPlane.rotation.x = Math.PI / 4 + Math.sin(time) * 0.15;
+
+                // Encontrar la normal del plano en el espacio global
+                normal.set(0, 0, 1).applyQuaternion(decisionPlane.quaternion);
+
+                const colorsAttr = points.geometry.attributes.color;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const p = pPositions[i];
+                    // Calcular a qué lado del plano está la partícula
+                    const dot = p.dot(normal);
+                    
+                    let col = dot > 0 ? colorA : colorB;
+                    colorsAttr.setXYZ(i, col.r, col.g, col.b);
+                }
+                colorsAttr.needsUpdate = true;
+
+                // Rotación general de la escena
+                scene.rotation.y = time * 0.03;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            const resizeObserver = new ResizeObserver(() => {
+                const w = container.clientWidth;
+                const h = container.clientHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            });
+            resizeObserver.observe(container);
+        }
+
+        // Inicializar Three.js para la diapositiva de Clustering (Partículas agrupadas)
+        function initThreeClustering() {
+            const container = document.getElementById('three-clustering-bg');
             if (!container) return;
 
             const width = container.clientWidth || 1000;
@@ -820,7 +956,7 @@
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(renderer.domElement);
 
-            // Generar partículas en 3 grupos (Clasificación)
+            // Generar partículas en 3 grupos (Clusters)
             const particleCount = 450;
             const geometry = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
@@ -913,10 +1049,132 @@
             resizeObserver.observe(container);
         }
 
+        // Inicializar Three.js para la diapositiva de Regresión (Línea de Ajuste y Residuos)
+        function initThreeRegresion() {
+            const container = document.getElementById('three-regression-bg');
+            if (!container) return;
+
+            const width = container.clientWidth || 1000;
+            const height = container.clientHeight || 600;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+            camera.position.set(0, 5, 110);
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            const group = new THREE.Group();
+            scene.add(group);
+
+            // 1. Línea de Regresión (Naranja Neón)
+            const lineMaterial = new THREE.LineBasicMaterial({ color: 0xf97316, linewidth: 2 });
+            const linePoints = [];
+            linePoints.push(new THREE.Vector3(-45, -18, 0));
+            linePoints.push(new THREE.Vector3(45, 18, 0));
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints(linePoints);
+            const regressionLine = new THREE.Line(lineGeometry, lineMaterial);
+            group.add(regressionLine);
+
+            // 2. Partículas dispersas (Datos Reales - Celeste)
+            const particleCount = 120;
+            const particleGeom = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const colorData = new THREE.Color('#06b6d4'); // Celeste
+
+            // Crear las líneas de los residuos (del punto a la recta)
+            const residualPoints = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                const x = (Math.random() - 0.5) * 80;
+                const m = 0.4;
+                const predictedY = m * x;
+                const error = (Math.random() - 0.5) * 20;
+                const y = predictedY + error;
+                const z = (Math.random() - 0.5) * 20;
+
+                positions[i * 3] = x;
+                positions[i * 3 + 1] = y;
+                positions[i * 3 + 2] = z;
+
+                colors[i * 3] = colorData.r;
+                colors[i * 3 + 1] = colorData.g;
+                colors[i * 3 + 2] = colorData.b;
+
+                // Agregar par de puntos para la línea de residuos
+                residualPoints.push(new THREE.Vector3(x, y, z));
+                residualPoints.push(new THREE.Vector3(x, predictedY, z));
+            }
+
+            particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            // Textura circular
+            const pCanvas = document.createElement('canvas');
+            pCanvas.width = 16;
+            pCanvas.height = 16;
+            const pCtx = pCanvas.getContext('2d');
+            const grad = pCtx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            pCtx.fillStyle = grad;
+            pCtx.fillRect(0, 0, 16, 16);
+            const texture = new THREE.CanvasTexture(pCanvas);
+
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 2.2,
+                vertexColors: true,
+                map: texture,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const dataPoints = new THREE.Points(particleGeom, particleMaterial);
+            group.add(dataPoints);
+
+            // 3. Líneas de residuos (Rojo Neón muy tenue)
+            const residualGeom = new THREE.BufferGeometry().setFromPoints(residualPoints);
+            const residualMaterial = new THREE.LineBasicMaterial({
+                color: 0xef4444, // Rojo
+                transparent: true,
+                opacity: 0.25,
+                blending: THREE.AdditiveBlending
+            });
+            const residualLines = new THREE.LineSegments(residualGeom, residualMaterial);
+            group.add(residualLines);
+
+            // Animar rotación lenta interactiva
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.002;
+                group.rotation.y = Math.sin(time) * 0.25;
+                group.rotation.x = Math.cos(time) * 0.1;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            const resizeObserver = new ResizeObserver(() => {
+                const w = container.clientWidth;
+                const h = container.clientHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            });
+            resizeObserver.observe(container);
+        }
+
         window.onload = function () {
             goToSlide(0);
             buildSidebar();
+            initThreeRegresion();
             initThreeClasificacion();
+            initThreeClustering();
         };
     </script>
 </body>

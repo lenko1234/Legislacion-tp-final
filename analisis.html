@@ -40,6 +40,7 @@
                 opacity: 0;
                 transform: translateY(20px) scale(0.98);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -51,6 +52,7 @@
                 opacity: 0;
                 transform: translateY(15px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -68,21 +70,39 @@
             animation: slideEnter 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .slide.active .anim-1 { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
-        .slide.active .anim-2 { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
-        .slide.active .anim-3 { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
-        .slide.active .anim-4 { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+        .slide.active .anim-1 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-2 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-3 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-4 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+            opacity: 0;
+        }
 
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0f172a;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #1e293b;
             border-radius: 10px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #3b82f6;
         }
@@ -106,7 +126,8 @@
     </header>
 
     <!-- Contenedor Principal de Presentación -->
-    <main class="relative flex-grow w-full max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-center overflow-hidden">
+    <main
+        class="relative flex-grow w-full max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-center overflow-hidden">
 
         <!-- MENÚ LATERAL (DRAWER) INTERACTIVO -->
         <div id="sidebar"
@@ -115,24 +136,33 @@
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="font-sora font-semibold text-lg text-white">Navegación</h3>
                     <button onclick="toggleSidebar()" class="text-brand-textMuted hover:text-white text-lg">
-                        <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
                     </button>
                 </div>
                 <div class="flex flex-col gap-2 overflow-y-auto max-h-[75vh]" id="sidebar-links">
                     <!-- Enlaces dinámicos generados por JS -->
                 </div>
             </div>
-            <div class="border-t border-brand-border pt-4 text-[10px] text-brand-textMuted flex justify-between items-center">
+            <div
+                class="border-t border-brand-border pt-4 text-[10px] text-brand-textMuted flex justify-between items-center">
                 <span>TPI_Exposicion_analisis.pptx</span>
                 <button onclick="toggleNotes()" class="text-brand-accentBlue hover:underline">Notas (N)</button>
             </div>
         </div>
 
         <!-- PANEL DE NOTAS DE ORADOR (OCULTO POR DEFECTO) -->
-        <div id="notes-panel" class="absolute bottom-6 left-6 right-6 bg-slate-950/90 border border-brand-border backdrop-blur-md rounded-2xl p-5 z-35 transform translate-y-[150%] transition-transform duration-300 ease-in-out">
+        <div id="notes-panel"
+            class="absolute bottom-6 left-6 right-6 bg-slate-950/90 border border-brand-border backdrop-blur-md rounded-2xl p-5 z-35 transform translate-y-[150%] transition-transform duration-300 ease-in-out">
             <div class="flex justify-between items-center mb-2 border-b border-brand-border/60 pb-2">
                 <span class="text-xs uppercase tracking-wider text-brand-accentBlue font-bold font-sora">
-                    <svg class="w-4 h-4 inline-block mr-1.5 align-text-bottom" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    <svg class="w-4 h-4 inline-block mr-1.5 align-text-bottom" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
                     Notas del Orador
                 </span>
                 <button onclick="toggleNotes()" class="text-brand-textMuted hover:text-white text-xs">Cerrar</button>
@@ -146,16 +176,22 @@
         <div class="w-full h-full flex items-center justify-center">
 
             <!-- SLIDE 1: PORTADA -->
-            <div class="slide active flex-col justify-center items-center text-center h-full max-w-4xl mx-auto" id="slide-0">
-                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">Trabajo Práctico Integrador</div>
-                <h1 class="anim-2 font-sora font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-                    Análisis de Ofertas Laborales de <span class="bg-gradient-to-r from-brand-accentBlue to-cyan-400 bg-clip-text text-transparent">Data Science</span>
+            <div class="slide active flex-col justify-center items-center text-center h-full max-w-4xl mx-auto"
+                id="slide-0">
+                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">
+                    Trabajo Práctico Integrador</div>
+                <h1
+                    class="anim-2 font-sora font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                    Análisis de Ofertas Laborales de <span
+                        class="bg-gradient-to-r from-brand-accentBlue to-cyan-400 bg-clip-text text-transparent">Data
+                        Science</span>
                 </h1>
                 <p class="anim-3 text-lg text-brand-textMuted max-w-2xl mx-auto mb-8 font-light">
                     Dataset: Data Science Job Postings (Glassdoor)
                 </p>
-                <div class="anim-4 bg-slate-900/60 border border-brand-border/80 backdrop-blur-sm px-6 py-4 rounded-2xl flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-brand-textMuted">
-                    <div><strong>Temas:</strong> Limpieza de datos</div>
+                <div
+                    class="anim-4 bg-slate-900/60 border border-brand-border/80 backdrop-blur-sm px-6 py-4 rounded-2xl flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-brand-textMuted">
+                    <div>Limpieza de datos</div>
                     <div class="text-brand-border">|</div>
                     <div>Regresión</div>
                     <div class="text-brand-border">|</div>
@@ -171,24 +207,36 @@
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-1">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Introducción</span>
+                    <span
+                        class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Introducción</span>
                 </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿De qué se trata este trabajo?</h2>
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿De qué se trata este
+                    trabajo?</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                    <div
+                        class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">El dataset</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Casi 700 ofertas laborales reales obtenidas públicamente de Glassdoor. Incluye datos de empresa, rubro, tamaño, calificación (rating), ubicación y salario estimado."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Casi 700 ofertas reales de Glassdoor. Incluye datos de la empresa (calificación, tamaño, tipo de propiedad, sector) y del puesto (experiencia requerida y habilidades técnicas como Python, Spark, AWS o Excel).">
+                        </p>
                     </div>
 
-                    <div class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">La pregunta central</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="¿Se puede predecir cuánto va a pagar una empresa por un puesto de Data Science según sus características comerciales y operativas?"></p>
+                    <div
+                        class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">La pregunta central
+                        </h3>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="¿Se puede predecir cuánto va a pagar una empresa por un puesto de Data Science según sus características comerciales y operativas?">
+                        </p>
                     </div>
 
-                    <div class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                    <div
+                        class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Utilidad práctica</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Ayuda a las empresas a evaluar si ofrecen salarios competitivos, y a los candidatos a saber qué rango salarial esperar del mercado."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Ayuda a las empresas a evaluar si ofrecen salarios competitivos, y a los candidatos a saber qué rango salarial esperar del mercado.">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -197,95 +245,168 @@
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-2">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Fase 01</span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Fase
+                        01</span>
                 </div>
                 <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">La limpieza de datos</h2>
-                <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Los datos reales nunca vienen perfectos. Si no los limpiamos, el modelo aprende información incorrecta.</div>
+                <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Los datos reales nunca vienen
+                    perfectos. Si no los limpiamos, el modelo aprende información incorrecta.</div>
 
                 <ul class="anim-4 space-y-6 text-lg text-brand-textMuted">
                     <li class="flex flex-col items-start gap-1">
                         <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4" />
+                            </svg>
                             <span class="font-sora font-semibold text-brand-accentOrange">Calificaciones con "-1"</span>
                         </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8" data-text="Eran datos faltantes disfrazados. Se reemplazaron por el rating promedio general."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Eran datos faltantes disfrazados. Se reemplazaron por el rating promedio general.">
+                        </p>
                     </li>
                     <li class="flex flex-col items-start gap-1">
                         <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
-                            <span class="font-sora font-semibold text-brand-accentBlue">Categorías y tamaños faltantes</span>
+                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4" />
+                            </svg>
+                            <span class="font-sora font-semibold text-brand-accentBlue">Categorías y tamaños
+                                faltantes</span>
                         </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8" data-text="Se completaron las categorías con la moda (más frecuente) y el tamaño con un valor intermedio típico."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Se completaron las categorías con la moda (más frecuente) y el tamaño con un valor intermedio típico.">
+                        </p>
                     </li>
                     <li class="flex flex-col items-start gap-1">
                         <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4" />
+                            </svg>
                             <span class="font-sora font-semibold text-brand-accentRed">Sueldos "por hora"</span>
                         </div>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8" data-text="Dado que no se podía estimar el rango anual real, se descartaron esas pocas filas de la base."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Dado que no se podía estimar el rango anual real, se descartaron esas pocas filas de la base.">
+                        </p>
                     </li>
                 </ul>
             </div>
 
             <!-- SLIDE 4: TRANSICION LOS MODELOS -->
             <div class="slide flex-col justify-center items-center text-center h-full max-w-4xl mx-auto" id="slide-3">
-                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">Fase 02</div>
+                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">
+                    Fase 02</div>
                 <h1 class="anim-2 font-sora font-extrabold text-4xl md:text-6xl text-white leading-tight mb-4">
                     Los Modelos
                 </h1>
-                <p class="anim-3 text-lg text-brand-textMuted max-w-xl mx-auto font-light">
-                    Tres formas distintas de analizar los mismos datos para predecir y entender los salarios.
-                </p>
+                <div class="anim-3 mt-6 max-w-3xl mx-auto space-y-6 text-left">
+                    <div class="group flex flex-col gap-1.5 cursor-pointer">
+                        <span class="text-xs uppercase font-bold tracking-wider text-brand-accentBlue font-sora">1. Regresión</span>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            La <strong>regresión</strong> predice un número a partir de otras variables, aprendiendo la relación entre ellas.
+                        </p>
+                    </div>
+                    <div class="group flex flex-col gap-1.5 cursor-pointer">
+                        <span class="text-xs uppercase font-bold tracking-wider text-brand-accentGreen font-sora">2. Clasificación</span>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            La <strong>clasificación</strong> predice una categoría o etiqueta ya definida (por ejemplo alto/bajo o frío/caliente).
+                        </p>
+                    </div>
+                    <div class="group flex flex-col gap-1.5 cursor-pointer">
+                        <span class="text-xs uppercase font-bold tracking-wider text-brand-accentOrange font-sora">3. Clustering</span>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            El <strong>clustering</strong> agrupa datos sin etiquetas previas, encontrando patrones y formando grupos automáticamente según similitudes.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- SLIDE 5: REGRESION -->
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-4">
-                <div class="anim-1 flex items-center gap-2 mb-4">
-                    <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Modelo 1</span>
-                </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Regresión: Predecir el salario exacto</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-brand-accentBlue font-sora font-bold text-lg">Funcionamiento</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Se entrena al sistema con cientos de ofertas reales para que identifique qué variables se relacionan con sueldos más altos o más bajos."></p>
+                <div class="anim-1 flex items-center gap-4 mb-6">
+                    <!-- Icono circular verde/teal -->
+                    <div class="w-14 h-14 rounded-full bg-[#0d9488]/20 border border-[#0d9488]/40 flex items-center justify-center text-[#0d9488]">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
                     </div>
-
-                    <div class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-cyan-400 font-sora font-bold text-lg">Efecto de Variables</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Lo que más influye es la calificación de la empresa (rating) y su tamaño, más que las habilidades técnicas específicas exigidas."></p>
-                    </div>
-
-                    <div class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
-                        <h3 class="text-brand-accentOrange font-sora font-bold text-lg">Analogía</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Es como cuando una inmobiliaria estima el valor de una casa según su barrio y metros cuadrados, sin adivinar el valor de transacción final."></p>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora block">Modelo 1: Regresión</span>
+                        <h2 class="font-sora font-bold text-3xl md:text-4xl text-white">Predecir el salario exacto</h2>
                     </div>
                 </div>
+
+                <ul class="anim-2 space-y-5 text-brand-textMuted mt-4">
+                    <li class="flex flex-col items-start gap-1">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <span class="font-sora font-semibold text-brand-accentBlue">Entrenamiento del modelo</span>
+                        </div>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Se le mostró al sistema cientos de ofertas con su salario real, para que aprenda qué características se relacionan con sueldos más altos o más bajos."></p>
+                    </li>
+                    <li class="flex flex-col items-start gap-1">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <span class="font-sora font-semibold text-brand-accentOrange">Factores de influencia</span>
+                        </div>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Lo que más influye en el salario: la calificación de la empresa (rating) y su tamaño, más que las habilidades técnicas pedidas."></p>
+                    </li>
+                    <li class="flex flex-col items-start gap-1">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <span class="font-sora font-semibold text-brand-accentGreen">Precisión y estimación</span>
+                        </div>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="El modelo no acierta el salario exacto siempre, pero da una estimación razonable."></p>
+                    </li>
+                    <li class="flex flex-col items-start gap-1">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-brand-accentRed flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                            <span class="font-sora font-semibold text-brand-accentRed">Analogía práctica</span>
+                        </div>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pl-8"
+                            data-text="Es como cuando una inmobiliaria estima el valor de una casa según su barrio y metros cuadrados, sin adivinar el valor exacto de la transacción final."></p>
+                    </li>
+                </ul>
             </div>
 
             <!-- SLIDE 6: CLASIFICACION -->
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-5">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentGreen rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentGreen font-bold font-sora">Modelo 2</span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentGreen font-bold font-sora">Modelo 2: Clasificación</span>
                 </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Clasificación: Rango de Salario</h2>
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Rango de Salario</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                    <div
+                        class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
                         <h3 class="text-brand-accentGreen font-sora font-bold text-lg">Enfoque por Categorías</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="En lugar de buscar un número exacto, se le pide al sistema clasificar cada puesto en tres categorías: Bajo, Medio o Alto."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="En lugar de buscar un número exacto, se le pide al sistema clasificar cada puesto en tres categorías: Bajo, Medio o Alto.">
+                        </p>
                     </div>
 
-                    <div class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                    <div
+                        class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
                         <h3 class="text-teal-400 font-sora font-bold text-lg">Efectividad</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Acertó la categoría en una proporción alta de los casos de prueba, resultando muy efectivo para el tipo de datos analizado."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Acertó la categoría en una proporción alta de los casos de prueba, resultando muy efectivo para el tipo de datos analizado.">
+                        </p>
                     </div>
 
-                    <div class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                    <div
+                        class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
                         <h3 class="text-brand-accentRed font-sora font-bold text-lg">Utilidad</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Permite responder con rapidez y fiabilidad una duda crucial: ¿esta oferta de trabajo paga por encima o por debajo de la media del mercado?"></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Permite responder con rapidez y fiabilidad una duda crucial: ¿esta oferta de trabajo paga por encima o por debajo de la media del mercado?">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -294,32 +415,43 @@
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-6">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Modelo 3</span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Modelo 3: Clustering</span>
                 </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Clustering: Agrupar ofertas parecidas</h2>
-                <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Se le pide al sistema agrupar ofertas por similitud de variables, sin darle respuestas previas.</div>
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Agrupar ofertas parecidas</h2>
+                <div class="anim-2 text-sm text-brand-textMuted mb-6 font-light">Se le pide al sistema agrupar ofertas
+                    por similitud de variables, sin darle respuestas previas.</div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                    <div
+                        class="anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Perfil 1 (Alto)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Compuesto por empresas grandes, muy bien calificadas por empleados (alto rating) y con salarios altos.">
+                        </p>
                     </div>
 
-                    <div class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                    <div
+                        class="anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">Perfil 2 (Medio)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Un segmento intermedio, donde tanto el tamaño de la corporación como la banda salarial rondan la media general.">
+                        </p>
                     </div>
 
-                    <div class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
+                    <div
+                        class="anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentOrange/30 p-6 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">Perfil 3 (Bajo)</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Empresas de menor tamaño, emergentes o locales, con rangos salariales estimados más bajos.">
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- SLIDE 8: TRANSICION DASHBOARD -->
             <div class="slide flex-col justify-center items-center text-center h-full max-w-4xl mx-auto" id="slide-7">
-                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">Fase 03</div>
+                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">
+                    Fase 03</div>
                 <h1 class="anim-2 font-sora font-extrabold text-4xl md:text-6xl text-white leading-tight mb-4">
                     Dashboard en Power BI
                 </h1>
@@ -332,29 +464,43 @@
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-8">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Aplicabilidad</span>
+                    <span
+                        class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Aplicabilidad</span>
                 </div>
-                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿Para qué sirve en la vida real?</h2>
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿Para qué sirve en la vida
+                    real?</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">Empresas</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Permite validar la competitividad interna de sus ofertas en base a métricas reales del mercado de Glassdoor."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Permite validar la competitividad interna de sus ofertas en base a métricas reales del mercado de Glassdoor.">
+                        </p>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">Candidatos</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Otorga poder de negociación de cara a procesos de reclutamiento conociendo de antemano el salario medio justo."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Otorga poder de negociación de cara a procesos de reclutamiento conociendo de antemano el salario medio justo.">
+                        </p>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-5 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">Consultoras</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Pueden segmentar búsquedas por perfiles (clusters) optimizando recursos según el tipo de cliente corporativo."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Pueden segmentar búsquedas por perfiles (clusters) optimizando recursos según el tipo de cliente corporativo.">
+                        </p>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentRed/30 p-5 rounded-2xl transition-all duration-300">
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentRed/30 p-5 rounded-2xl transition-all duration-300">
                         <h3 class="font-sora font-semibold text-lg text-brand-accentRed mb-2">Limitaciones</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="El modelo es orientativo. Faltan factores subjetivos clave (capacidad de negociación, costo de vida de cada ciudad, beneficios)."></p>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="El modelo es orientativo. Faltan factores subjetivos clave (capacidad de negociación, costo de vida de cada ciudad, beneficios).">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -363,37 +509,46 @@
             <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-9">
                 <div class="anim-1 flex items-center gap-2 mb-4">
                     <span class="w-2 h-2 bg-brand-accentRed rounded-full"></span>
-                    <span class="text-xs uppercase tracking-widest text-brand-accentRed font-bold font-sora">Respaldo</span>
+                    <span
+                        class="text-xs uppercase tracking-widest text-brand-accentRed font-bold font-sora">Respaldo</span>
                 </div>
                 <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Posibles Preguntas</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">¿Por qué este dataset?</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Presenta información real e interesante sobre el mercado laboral de la disciplina, ofreciendo suficientes filas para estructurar modelos robustos."></p>
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-brand-accentBlue mb-2">¿Por qué este dataset?
+                        </h3>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Presenta información real e interesante sobre el mercado laboral de la disciplina, ofreciendo suficientes filas para estructurar modelos robustos.">
+                        </p>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">¿Predice con precisión?</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="Predice de forma razonable, no infalible. Hay un porcentaje del salario determinado por intangibles fuera del dataset."></p>
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-brand-accentGreen mb-2">¿Predice con precisión?
+                        </h3>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="Predice de forma razonable, no infalible. Hay un porcentaje del salario determinado por intangibles fuera del dataset.">
+                        </p>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
-                        <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">¿Qué decisión costó más?</h3>
-                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" data-text="La gestión de datos faltantes: decidir imputar valores (completar a base de la media o la moda) en lugar de eliminar masivamente filas útiles."></p>
+                    <div
+                        class="bg-slate-900/40 border border-brand-border/50 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-brand-accentOrange mb-2">¿Qué decisión costó
+                            más?</h3>
+                        <p class="typewriter-text text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out"
+                            data-text="La gestión de datos faltantes: decidir imputar valores (completar a base de la media o la moda) en lugar de eliminar masivamente filas útiles.">
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- SLIDE 11: GRACIAS -->
             <div class="slide flex-col justify-center items-center text-center h-full max-w-4xl mx-auto" id="slide-10">
-                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">Fin de la presentación</div>
-                <h1 class="anim-2 font-sora font-extrabold text-5xl md:text-7xl text-white leading-tight mb-4">
+                <h1 class="anim-2 font-sora font-extrabold text-5xl md:text-7xl text-white leading-tight">
                     ¡Gracias!
                 </h1>
-                <p class="anim-3 text-lg text-brand-textMuted max-w-xl mx-auto font-light font-mono">
-                    ¿Preguntas o comentarios?
-                </p>
             </div>
 
         </div>
@@ -456,11 +611,10 @@
             sidebarLinksContainer.innerHTML = '';
             slideNames.forEach((name, idx) => {
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center justify-between border ${
-                    idx === activeSlideIndex 
-                    ? 'bg-brand-accentBlue/10 border-brand-accentBlue/30 text-brand-accentBlue' 
-                    : 'bg-transparent border-transparent text-brand-textMuted hover:bg-slate-900 hover:text-white'
-                }`;
+                btn.className = `w-full text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center justify-between border ${idx === activeSlideIndex
+                        ? 'bg-brand-accentBlue/10 border-brand-accentBlue/30 text-brand-accentBlue'
+                        : 'bg-transparent border-transparent text-brand-textMuted hover:bg-slate-900 hover:text-white'
+                    }`;
                 btn.innerHTML = `
                     <span>${idx + 1}. ${name}</span>
                     ${idx === activeSlideIndex ? '<i class="fa-solid fa-circle text-[6px]">&#9679;</i>' : ''}
@@ -486,12 +640,12 @@
 
         function startTypewriter(skipAnimation) {
             clearTypewriter();
-            
+
             const activeSlide = slides[activeSlideIndex];
             if (!activeSlide) return;
-            
+
             const elements = activeSlide.querySelectorAll('.typewriter-text');
-            
+
             if (skipAnimation) {
                 // Mostrar instantáneamente el texto completo para todos los elementos al ir hacia atrás
                 elements.forEach(el => {
@@ -502,30 +656,30 @@
                 });
                 return;
             }
-            
+
             // Reset all typewriter elements in the active slide
             elements.forEach(el => {
                 el.textContent = '';
                 el.classList.remove('max-h-40', 'opacity-100', 'mt-2');
                 el.classList.add('max-h-0', 'opacity-0');
             });
-            
+
             if (elements.length === 0) return;
-            
+
             let elementIndex = 0;
-            
+
             function typeNextElement() {
                 if (elementIndex >= elements.length) return;
-                
+
                 const el = elements[elementIndex];
                 const text = el.getAttribute('data-text') || '';
-                
+
                 // Animate open layout transitions
                 el.classList.remove('max-h-0', 'opacity-0');
                 el.classList.add('max-h-40', 'opacity-100', 'mt-2');
-                
+
                 let charIndex = 0;
-                
+
                 function typeChar() {
                     if (charIndex < text.length) {
                         el.textContent += text.charAt(charIndex);
@@ -534,21 +688,21 @@
                         typewriterTimeouts.push(timeoutId);
                     } else {
                         elementIndex++;
-                        // Esperar 4 segundos antes de iniciar el siguiente elemento
-                        const timeoutId = setTimeout(typeNextElement, 4000);
+                        // Esperar 1 segundo antes de iniciar el siguiente elemento
+                        const timeoutId = setTimeout(typeNextElement, 1000);
                         typewriterTimeouts.push(timeoutId);
                     }
                 }
-                
+
                 typeChar();
             }
-            
+
             // Calcular delay inicial dinámico basado en la longitud del texto de introducción
-            let initialDelay = 1000; // Base de 1 segundo para la transición del slide
-            
+            let initialDelay = 250; // Base de 0.25 segundos para la transición del slide
+
             const h2 = activeSlide.querySelector('h2');
             let introTextLength = h2 ? h2.textContent.trim().length : 0;
-            
+
             // Buscar párrafos/divs con animaciones de entrada pero sin typewriter interno
             const animElems = activeSlide.querySelectorAll('.anim-2, .anim-3');
             animElems.forEach(el => {
@@ -556,10 +710,10 @@
                     introTextLength += el.textContent.trim().length;
                 }
             });
-            
+
             if (introTextLength > 0) {
-                // ~45ms por carácter para leer cómodamente + buffer de transición
-                initialDelay = 1000 + (introTextLength * 45);
+                // ~8ms por carácter para agilizar el inicio + buffer de transición
+                initialDelay = 250 + (introTextLength * 8);
             }
 
             const timeoutId = setTimeout(typeNextElement, initialDelay);
@@ -661,7 +815,7 @@
             }
         }
 
-        window.onload = function() {
+        window.onload = function () {
             goToSlide(0);
             buildSidebar();
         };

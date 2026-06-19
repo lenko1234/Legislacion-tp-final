@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Interactiva Premium - Roberto C. Villarrubia</title>
+
+    <!-- Tailwind CSS (Local Offline) -->
+    <script src="./tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sora: ['Sora', 'system-ui', '-apple-system', 'sans-serif'],
+                        inter: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#080c14',
+                            card: '#0f172a',
+                            border: '#1e293b',
+                            accentBlue: '#3b82f6',
+                            accentOrange: '#f97316',
+                            accentRed: '#ef4444',
+                            accentGreen: '#10b981',
+                            textMuted: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animaciones fluidas mediante keyframes para garantizar su ejecución al renderizarse */
+        @keyframes slideEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide {
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: slideEnter 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Aplicación de Stagger (retraso incremental) a elementos internos */
+        .slide.active .anim-1 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-2 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-3 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .anim-4 {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Estilos de barra de desplazamiento estilizada para el menú lateral */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-slate-100 font-inter h-screen overflow-hidden flex flex-col justify-between select-none">
+
+    <!-- Barra superior de Progreso -->
+    <header class="w-full bg-slate-950/20 z-50">
+        <!-- Barra de Progreso Dinámica -->
+        <div class="w-full bg-slate-800 h-1.5 relative">
+            <div id="progress-bar"
+                class="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-accentBlue to-cyan-400 transition-all duration-500 rounded-full"
+                style="width: 11.11%;"></div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de Presentación -->
+    <main
+        class="relative flex-grow w-full max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-center overflow-hidden">
+
+        <!-- MENÚ LATERAL (DRAWER) INTERACTIVO -->
+        <div id="sidebar"
+            class="absolute top-0 right-0 h-full w-80 bg-slate-950/95 border-l border-brand-border backdrop-blur-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-sora font-semibold text-lg text-white">Navegación</h3>
+                    <button onclick="toggleSidebar()" class="text-brand-textMuted hover:text-white text-lg"><svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+                </div>
+                <div class="flex flex-col gap-2 overflow-y-auto max-h-[75vh]" id="sidebar-links">
+                    <!-- Enlaces dinámicos generados por JS -->
+                </div>
+            </div>
+            <div class="border-t border-brand-border pt-4 text-[10px] text-brand-textMuted">
+                Presentacion_TP_Legislacion_Villarrubia_Premium.pptx
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVAS (Encapsuladas para renderizado independiente en iframe) -->
+        <div class="w-full h-full flex items-center justify-center">
+
+            <!-- SLIDE 1: PORTADA -->
+            <div class="slide active flex-col justify-center items-center text-center h-full max-w-4xl mx-auto"
+                id="slide-0">
+                <div class="anim-1 text-sm uppercase tracking-widest text-brand-accentBlue font-bold mb-3 font-sora">
+                    Trabajo Práctico Final</div>
+                <h1
+                    class="anim-2 font-sora font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                    Fallos Judiciales sobre <span
+                        class="bg-gradient-to-r from-brand-accentBlue to-cyan-400 bg-clip-text text-transparent">Delitos
+                        Informáticos</span> y Propiedad Intelectual
+                </h1>
+
+                <div
+                    class="anim-4 bg-slate-900/60 border border-brand-border/80 backdrop-blur-sm px-6 py-4 rounded-2xl flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-brand-textMuted">
+                    <div><svg class="w-4 h-4 text-brand-accentBlue mr-2 inline-block align-text-bottom" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><strong>Alumno:</strong> Roberto C.
+                        Villarrubia</div>
+                    <div class="hidden md:block text-brand-border">|</div>
+                    <div><svg class="w-4 h-4 text-brand-accentBlue mr-2 inline-block align-text-bottom" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><strong>Año:</strong> 2026</div>
+                    <div class="hidden md:block text-brand-border">|</div>
+                    <div><svg class="w-4 h-4 text-brand-accentBlue mr-2 inline-block align-text-bottom" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>TUP - UTN FRCU</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: CONTEXTO -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-1">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Sección
+                        01</span>
+                </div>
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Contexto</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="group anim-2 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-white mb-2">Transformación digital</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Migración masiva de interacciones y actividades a entornos virtuales.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-3 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-white mb-2">Nuevos desafíos jurídicos</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Complejidad para aplicar leyes analógicas del siglo XX a redes digitales.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-4 bg-slate-900/40 border border-brand-border/50 hover:border-brand-accentBlue/30 p-6 rounded-2xl transition-all duration-300">
+                        <h3 class="font-sora font-semibold text-lg text-white mb-2">Privacidad y propiedad intelectual</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Conflicto constante entre la intimidad del usuario y el derecho autoral.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: CASO LANATA HECHOS -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-2">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Fallo 01:
+                        Delitos Informáticos</span>
+                </div>
+
+                <div class="w-full">
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Caso Lanata (1999)</h2>
+
+                    <ul class="anim-4 space-y-6 text-lg text-brand-textMuted">
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-white">Divulgación de e-mail privado</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                El periodista Jorge Lanata publicó en una revista el contenido de correos electrónicos privados de terceros sin su consentimiento.
+                            </p>
+                        </li>
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-white">Debate jurídico</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                La defensa alegó atipicidad penal argumentando que el e-mail no estaba mencionado explícitamente en la ley.
+                            </p>
+                        </li>
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentBlue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 8l4 4-4 4"/></svg>
+                                <span class="font-sora font-semibold text-white">Privacidad de las comunicaciones</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                Conflicto directo entre la libertad de prensa/información y la expectativa de privacidad de los usuarios.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: CASO LANATA RESOLUCIÓN -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-3">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Fallo 01:
+                        Delitos Informáticos</span>
+                </div>
+
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Fallo Lanata</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="group anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-brand-accentBlue font-sora font-bold text-lg">E-mail = correspondencia protegida</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            La Cámara de Apelaciones determinó que el correo electrónico goza de la misma protección e inviolabilidad constitucional que una carta de papel física.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-cyan-400 font-sora font-bold text-lg">Interpretación extensiva</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Se aplicó una lectura evolutiva del Código Penal para adaptar el espíritu de la norma a las tecnologías modernas sin vulnerar el principio de legalidad.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-white font-sora font-bold text-lg">Base para Ley 26.388</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Incorporó al Código Penal delitos como el acceso ilegítimo a sistemas (hacking), la violación de correos electrónicos, el daño o sabotaje informático y el fraude digital.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: CASO LANATA CRÍTICA -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-4">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentGreen rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentGreen font-bold font-sora">Análisis
+                        Crítico</span>
+                </div>
+
+                <div class="w-full">
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿Por qué estoy de
+                        acuerdo?</h2>
+
+                    <ul class="anim-4 space-y-4 text-lg text-brand-textMuted">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentGreen mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span>Protección efectiva</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentGreen mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span>Evita vacíos legales</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentGreen mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span>Adaptación tecnológica</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: SAGAI HECHOS -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-5">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Fallo
+                        02: Propiedad Intelectual</span>
+                </div>
+
+                <div class="w-full">
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">SAGAI c/ Google y
+                        YouTube</h2>
+
+                    <ul class="anim-4 space-y-6 text-lg text-brand-textMuted">
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <span class="font-sora font-semibold text-white">Derechos de intérpretes</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                Ley 11.723 y Decreto 1914/06: los actores tienen el derecho irrenunciable a percibir una retribución por la difusión pública de sus actuaciones.
+                            </p>
+                        </li>
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <span class="font-sora font-semibold text-white">Monetización</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                YouTube comercializa y genera ingresos publicitarios masivos explotando producciones audiovisuales que contienen el trabajo de actores locales.
+                            </p>
+                        </li>
+                        <li class="group flex flex-col items-start gap-1">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brand-accentOrange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <span class="font-sora font-semibold text-white">Reclamo económico</span>
+                            </div>
+                            <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out pl-8">
+                                Demanda civil colectiva de SAGAI para exigir a Google el pago del canon arancelario del 2% sobre su facturación publicitaria en Argentina.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: SAGAI SAFE HARBOUR -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-6">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentOrange rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentOrange font-bold font-sora">Fallo
+                        02: Propiedad Intelectual</span>
+                </div>
+
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-4">Resultado del conflicto</h2>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="group anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-brand-accentOrange font-sora font-bold text-lg">Safe Harbour</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Doctrina que exime de responsabilidad a las plataformas por contenidos subidos por terceros, utilizándola para no pagar derechos de autor.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-brand-accentRed font-sora font-bold text-lg">Sin solución efectiva</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            La justicia local no logró obligar a Google a pagar las regalías correspondientes de forma directa a la asociación de actores.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                        <h3 class="text-white font-sora font-bold text-lg">Proceso prolongado</h3>
+                        <p class="text-sm text-brand-textMuted leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 ease-in-out">
+                            Años de litigio en sucesivas disputas de competencia técnica y recursos procesales sin lograr una ejecución de condena firme.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8: SAGAI CRÍTICA -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-7">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentRed rounded-full"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-accentRed font-bold font-sora">Análisis
+                        Crítico</span>
+                </div>
+
+                <div class="w-full">
+                    <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">¿Por qué estoy en
+                        desacuerdo?</h2>
+
+                    <ul class="anim-4 space-y-4 text-lg text-brand-textMuted">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentRed mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                            <span>YouTube obtiene beneficios</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentRed mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                            <span>Asimetría de poder</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-accentRed mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                            <span>Necesidad de regulación</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: CONCLUSIONES -->
+            <div class="slide flex-col justify-center h-full max-w-5xl mx-auto" id="slide-8">
+                <div class="anim-1 flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-brand-accentBlue rounded-full"></span>
+                    <span
+                        class="text-xs uppercase tracking-widest text-brand-accentBlue font-bold font-sora">Síntesis</span>
+                </div>
+
+                <h2 class="anim-1 font-sora font-bold text-3xl md:text-4xl text-white mb-6">Conclusiones</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="anim-2 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between">
+                        <h3 class="text-brand-accentGreen font-sora font-bold text-lg">Lanata: avance</h3>
+                    </div>
+
+                    <div
+                        class="anim-3 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between">
+                        <h3 class="text-brand-accentRed font-sora font-bold text-lg">SAGAI: desafío pendiente</h3>
+                    </div>
+
+                    <div
+                        class="anim-4 bg-slate-900/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between">
+                        <h3 class="text-brand-accentBlue font-sora font-bold text-lg">El derecho debe evolucionar</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Controles de Navegación y Footer (Ocultos pero preservados en el DOM para compatibilidad JS) -->
+    <footer class="hidden">
+        <span id="current-slide-badge"></span>
+        <button id="prev-btn"></button>
+        <button id="next-btn"></button>
+    </footer>
+
+    <!-- Lógica de Control de Diapositivas e Interactividad -->
+    <script>
+        const totalSlides = 9;
+        let activeSlideIndex = 0;
+        let isSidebarOpen = false;
+
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress-bar');
+        const badge = document.getElementById('current-slide-badge');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const sidebarLinksContainer = document.getElementById('sidebar-links');
+
+        // Nombres representativos para el menú lateral
+        const slideNames = [
+            "Portada",
+            "Contexto",
+            "Caso Lanata (1999)",
+            "Fallo Lanata",
+            "¿Por qué estoy de acuerdo?",
+            "SAGAI c/ Google y YouTube",
+            "Resultado del conflicto",
+            "¿Por qué estoy en desacuerdo?",
+            "Conclusiones"
+        ];
+
+        // Construir dinámicamente los accesos del menú lateral
+        function buildSidebar() {
+            sidebarLinksContainer.innerHTML = '';
+            slideNames.forEach((name, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center justify-between border ${idx === activeSlideIndex
+                        ? 'bg-brand-accentBlue/10 border-brand-accentBlue/30 text-brand-accentBlue'
+                        : 'bg-transparent border-transparent text-brand-textMuted hover:bg-slate-900 hover:text-white'
+                    }`;
+                btn.innerHTML = `
+                    <span>${name}</span>
+                    ${idx === activeSlideIndex ? '<i class="fa-solid fa-circle text-[6px]"></i>' : ''}
+                `;
+                btn.onclick = () => {
+                    goToSlide(idx);
+                    toggleSidebar();
+                };
+                sidebarLinksContainer.appendChild(btn);
+            });
+        }
+
+        // Navegar a una diapositiva concreta
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+
+            // Desactivar diapositiva activa previa
+            slides[activeSlideIndex].classList.remove('active');
+
+            // Actualizar índice
+            activeSlideIndex = index;
+
+            // Activar nueva diapositiva
+            slides[activeSlideIndex].classList.add('active');
+
+            // Actualizar controles, barra de progreso y número de diapositiva
+            const progressPercent = ((activeSlideIndex + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+
+            badge.textContent = String(activeSlideIndex + 1).padStart(2, '0');
+
+            // Manejo de estados de habilitación de botones
+            prevBtn.disabled = activeSlideIndex === 0;
+            nextBtn.disabled = activeSlideIndex === totalSlides - 1;
+
+            // Reconstruir el sidebar para reflejar el cambio activo
+            buildSidebar();
+        }
+
+        function nextSlide() {
+            if (activeSlideIndex < totalSlides - 1) {
+                goToSlide(activeSlideIndex + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (activeSlideIndex > 0) {
+                goToSlide(activeSlideIndex - 1);
+            }
+        }
+
+        // Interruptor del menú lateral
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            isSidebarOpen = !isSidebarOpen;
+            if (isSidebarOpen) {
+                sidebar.classList.remove('translate-x-full');
+            } else {
+                sidebar.classList.add('translate-x-full');
+            }
+        }
+
+        // Navegación por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Escape' && isSidebarOpen) {
+                toggleSidebar();
+            }
+        });
+
+        // Soporte de Gestos Táctiles (Swipe) para dispositivos móviles/tablets
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50; // Umbral mínimo para calificar de swipe
+            if (touchStartX - touchEndX > threshold) {
+                // Desplazamiento a la izquierda -> Siguiente diapositiva
+                nextSlide();
+            } else if (touchEndX - touchStartX > threshold) {
+                // Desplazamiento a la derecha -> Diapositiva anterior
+                prevSlide();
+            }
+        }
+
+        // Inicialización tras la carga completa del documento
+        window.onload = function () {
+            goToSlide(0);
+            buildSidebar();
+        };
+    </script>
+</body>
+
+</html>
